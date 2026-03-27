@@ -113,7 +113,7 @@
 @media (max-width: 768px) {
     .hero {
         padding-top: 6rem;
-        padding-bottom: 2rem;
+        padding-bottom: 0rem; /* Remove bottom padding to let image crash cleanly */
     }
     .hero h1 {
         font-size: 2.2rem;
@@ -124,16 +124,33 @@
     .hero-tag {
         font-size: 0.8rem;
     }
+    /* Let the visual container hold the full image organically */
     .hero-visuals {
-        height: 40vh;
+        height: auto;
+        min-height: auto;
+        margin-top: 3rem;
+        width: 100vw;
+        margin-left: -5%; /* Break out of 5% page padding to allow edge-to-edge glow if needed */
+        display: flex;
+        justify-content: center;
+        align-items: flex-end; /* Flush to bottom */
     }
     .orb-glow {
-        width: 350px;
-        height: 350px;
+        width: 450px;
+        height: 450px;
         left: 50%;
+        top: 60%;
     }
+    /* Reverting from absolute to relative structure to force viewport height accurately */
     .hero-profile-img {
-        width: auto;
-        height: 90%;
+        position: relative;
+        width: 100%;
+        max-width: 450px; /* Don't get absurdly large on landscape phones */
+        height: auto;
+        right: auto;
+        transform: none;
+        left: auto;
+        margin: 0 auto;
+        display: block;
     }
 }
