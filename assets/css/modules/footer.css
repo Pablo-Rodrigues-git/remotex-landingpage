@@ -29,3 +29,15 @@
     color: #666;
     font-size: 0.85rem;
 }
+
+@media (max-width: 768px) {
+    .footer-section {
+        padding: 4rem 5% 2rem;
+    }
+    .footer-section h2 {
+        font-size: 2rem;
+    }
+    .footer-section p {
+        font-size: 0.95rem;
+    }
+}

@@ -108,3 +108,32 @@
         transform: translateX(-50%);
     }
 }
+
+/* Phones */
+@media (max-width: 768px) {
+    .hero {
+        padding-top: 6rem;
+        padding-bottom: 2rem;
+    }
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    .hero p {
+        font-size: 1rem;
+    }
+    .hero-tag {
+        font-size: 0.8rem;
+    }
+    .hero-visuals {
+        height: 40vh;
+    }
+    .orb-glow {
+        width: 350px;
+        height: 350px;
+        left: 50%;
+    }
+    .hero-profile-img {
+        width: auto;
+        height: 90%;
+    }
+}

@@ -59,3 +59,18 @@
         font-size: 2.5rem;
     }
 }
+
+@media (max-width: 768px) {
+    .about-text-side {
+        padding: 3rem 5%;
+    }
+    .about-text-side h2 {
+        font-size: 2.2rem;
+    }
+    .about-text-side p {
+        font-size: 1rem;
+    }
+    .about-image-side {
+        height: 40vh;
+    }
+}

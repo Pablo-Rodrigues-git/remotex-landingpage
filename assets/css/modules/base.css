@@ -85,3 +85,20 @@ h1, h2, h3, h4 {
     max-width: 1200px;
     margin: 0 auto;
 }
+
+/* Mobile Global Fallbacks */
+@media (max-width: 768px) {
+    .section-wrapper {
+        padding: 4rem 5% 3rem;
+    }
+    .btn-neon {
+        font-size: 0.85rem;
+        padding: 0.8rem 1.5rem;
+        text-align: center;
+        justify-content: center;
+        width: 100%;
+    }
+    h1, h2, h3, h4 {
+        word-break: break-word; /* Prevents overflow */
+    }
+}
