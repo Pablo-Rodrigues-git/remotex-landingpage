@@ -1,0 +1,31 @@
+/* Footer & Final CTA */
+.footer-section {
+    background-color: var(--bg-dark-gray);
+    padding: 6rem 5% 2rem;
+    text-align: center;
+}
+
+.footer-section h2 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer-section p {
+    color: var(--text-muted);
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-bottom {
+    margin-top: 6rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    color: #666;
+    font-size: 0.85rem;
+}

@@ -1,0 +1,110 @@
+/* Hero Section */
+.hero {
+    background-color: var(--bg-black);
+    position: relative;
+    overflow: hidden;
+    padding-top: 10rem;
+    padding-bottom: 5rem;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.hero-content {
+    max-width: 600px;
+    position: relative;
+    z-index: 10;
+}
+
+.hero-tag {
+    display: inline-block;
+    color: #fff;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.hero-tag::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0;
+    height: 100%; width: 3px;
+    background-color: var(--brand-green);
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.hero p {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+}
+
+.highlight-green {
+    color: var(--brand-green);
+}
+
+/* Orb & Image */
+.hero-visuals {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 60%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.orb-glow {
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, var(--brand-green-glow) 0%, transparent 60%);
+    border-radius: 50%;
+    top: 50%;
+    left: 30%; /* Behind image and text */
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    filter: blur(60px);
+}
+
+.hero-profile-img {
+    position: absolute;
+    bottom: 0;
+    right: 5%;
+    height: 85%;
+    width: auto;
+    object-fit: contain;
+    z-index: 2;
+    filter: grayscale(80%) contrast(1.2); /* Match Finch's desaturated look */
+    mix-blend-mode: lighten; /* Makes solid black natively transparent over the glow */
+}
+
+@media (max-width: 1024px) {
+    .hero {
+        flex-direction: column;
+        padding-top: 8rem;
+        text-align: center;
+    }
+    .hero-visuals {
+        position: relative;
+        width: 100%;
+        height: 50vh;
+        margin-top: 2rem;
+    }
+    .hero-profile-img {
+        right: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}

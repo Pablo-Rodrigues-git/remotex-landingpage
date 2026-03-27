@@ -1,0 +1,61 @@
+/* About Section */
+.about-split {
+    display: flex;
+    min-height: 80vh;
+    background-color: var(--bg-black);
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.about-text-side {
+    flex: 1;
+    padding: 6rem 5% 6rem 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.about-text-side h2 {
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.verify-badge {
+    color: #1DA1F2; /* Verified blue */
+    width: 32px;
+    height: 32px;
+}
+
+.about-text-side p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.about-image-side {
+    flex: 1;
+    background-image: url('../../img/pablo.jpeg');
+    background-size: cover;
+    background-position: center 20%;
+    background-repeat: no-repeat;
+    filter: grayscale(100%) contrast(1.1) brightness(0.6);
+    position: relative;
+    mix-blend-mode: lighten;
+}
+
+@media (max-width: 1024px) {
+    .about-split {
+        flex-direction: column;
+    }
+    .about-image-side {
+        height: 50vh;
+        width: 100%;
+        order: -1;
+    }
+    .about-text-side h2 {
+        font-size: 2.5rem;
+    }
+}

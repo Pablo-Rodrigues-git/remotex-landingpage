@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--bg-black);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+::selection {
+    background-color: var(--brand-green);
+    color: #000;
+}
+
+/* Typography Helper */
+h1, h2, h3, h4 {
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+/* Button Component */
+.btn-neon {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--brand-green);
+    color: #000000;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(0, 230, 118, 0.4);
+}
+
+.btn-neon:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 0 30px rgba(0, 230, 118, 0.7);
+}
+
+/* Layout Utilities */
+.section-wrapper {
+    position: relative;
+    padding: 8rem 5% 5rem;
+    display: flex;
+}
+
+.side-tracker {
+    width: var(--nav-tracker-width);
+    flex-shrink: 0;
+    position: relative;
+    display: none; /* Hidden on mobile */
+}
+
+@media (min-width: 1024px) {
+    .side-tracker { display: block; }
+}
+
+.tracker-text {
+    position: sticky;
+    top: 120px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--brand-green);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-left: 2px solid var(--brand-green);
+    padding-left: 1rem;
+}
+
+.section-content {
+    flex: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+}

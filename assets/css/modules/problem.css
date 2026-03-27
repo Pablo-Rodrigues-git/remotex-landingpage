@@ -1,0 +1,75 @@
+/* The Letter / Problem */
+.problem-section {
+    background-color: var(--bg-black);
+}
+
+.problem-content {
+    max-width: 800px;
+}
+
+.problem-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.problem-content p {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.problem-content strong {
+    color: #fff;
+}
+
+/* Glass Cards Component */
+.glass-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.glass-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-card);
+    border-radius: 12px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--brand-green);
+}
+
+.glass-card-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 230, 118, 0.1);
+    color: var(--brand-green);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.glass-card h4 {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+    color: var(--brand-green);
+}
+
+.glass-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 0 !important;
+}
+
+@media (max-width: 1024px) {
+    .glass-grid {
+        grid-template-columns: 1fr;
+    }
+}
