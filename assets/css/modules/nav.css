@@ -39,6 +39,24 @@
     color: var(--brand-green);
 }
 
+/* Nav CTA Button */
+.nav-cta {
+    background-color: var(--brand-green);
+    color: #000 !important;
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.nav-cta:hover {
+    box-shadow: 0 0 15px var(--brand-green-glow);
+    transform: translateY(-1px);
+}
+
 @media (max-width: 1024px) {
     .nav-links { display: none; }
 }

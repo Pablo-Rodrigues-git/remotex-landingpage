@@ -48,6 +48,16 @@
     margin-bottom: 2.5rem;
 }
 
+.hero-exclusivity {
+    margin-top: 2rem !important;
+    margin-bottom: 0 !important;
+    font-size: 0.8rem !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted) !important;
+}
+
 .highlight-green {
     color: var(--brand-green);
 }

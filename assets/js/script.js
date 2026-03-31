@@ -1,20 +1,9 @@
-// Cursor Glow Effect
-const glow = document.getElementById('glow');
-
-document.addEventListener('mousemove', (e) => {
-    // We use requestAnimationFrame for optimal performance
-    requestAnimationFrame(() => {
-        glow.style.left = `${e.clientX}px`;
-        glow.style.top = `${e.clientY}px`;
-    });
-});
-
 // Reveal Elements on Scroll
 const reveals = document.querySelectorAll('.reveal');
 
 function checkReveal() {
     const windowHeight = window.innerHeight;
-    const revealPoint = 120; // When to reveal the element
+    const revealPoint = 120;
 
     reveals.forEach(reveal => {
         const revealTop = reveal.getBoundingClientRect().top;
@@ -24,7 +13,17 @@ function checkReveal() {
     });
 }
 
-// Listen to scroll events
 window.addEventListener('scroll', checkReveal);
-// Trigger once on load to show elements already in view
 checkReveal();
+
+// Form Submission Feedback
+const leadForm = document.getElementById('leadForm');
+
+if (leadForm) {
+    leadForm.addEventListener('submit', function (e) {
+        const btn = leadForm.querySelector('.form-submit-btn');
+        btn.textContent = 'ENVIANDO...';
+        btn.style.opacity = '0.7';
+        btn.style.pointerEvents = 'none';
+    });
+}
