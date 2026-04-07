@@ -122,42 +122,75 @@
         </aside>
 
         <div class="section-content solution-content">
-            <h2>Blindagem e aceleração do seu <span class="highlight-green">ciclo de entrega</span> mobile</h2>
+            <h2>Um diagnóstico completo do seu ciclo de entrega: do <span class="highlight-green">Concept ao Release</span></h2>
 
-            <p>Nosso trabalho elimina o que chamamos de "Imposto da Ineficiência Mobile" — aquele custo operacional oculto que drena seu orçamento em hotfixes, reuniões sem resultado e retrabalho constante.</p>
+            <p>Analisamos cada etapa do seu processo de delivery mobile — desde a concepção da feature até a publicação nas lojas. Mapeamos onde seu investimento está sendo desperdiçado e entregamos um plano de ação com impacto financeiro mensurável.</p>
 
-            <div class="solution-pillars">
-                <div class="pillar-card">
-                    <span class="pillar-number">01</span>
-                    <h3>Eficiência de Investimento</h3>
-                    <p>Transformamos tempo ocioso de engenharia (espera de builds, processos manuais) em tempo produtivo real. Cada real investido volta a gerar valor.</p>
-                </div>
-                <div class="pillar-card">
-                    <span class="pillar-number">02</span>
-                    <h3>Previsibilidade Real</h3>
-                    <p>Substituímos o "eu acho que entrega na sexta" por datas cumpridas e métricas confiáveis. Fim do atrito entre Produto e Engenharia — metas de quarter cumpridas.</p>
-                </div>
-                <div class="pillar-card">
-                    <span class="pillar-number">03</span>
-                    <h3>Governança de Entrega</h3>
-                    <p>Protegemos seu investimento contra releases instáveis, rollbacks e perda de confiança do mercado. O risco não é só o bug — é o CAPEX desperdiçado.</p>
+            <!-- Diagnostic Flow: Upstream → Downstream -->
+            <div class="diagnostic-flow">
+                <div class="flow-label">O que analisamos ponta a ponta</div>
+                <div class="flow-steps">
+                    <div class="flow-step">
+                        <span class="flow-step-tag">Upstream</span>
+                        <h4>Concepção e Refinamento</h4>
+                        <p>Como features nascem, são priorizadas e refinadas. Identificamos reuniões improdutivas e desalinhamentos entre Produto e Engenharia que geram retrabalho antes mesmo de uma linha de código ser escrita.</p>
+                    </div>
+                    <div class="flow-connector">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:24px;color:var(--brand-green)"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </div>
+                    <div class="flow-step">
+                        <span class="flow-step-tag">Desenvolvimento</span>
+                        <h4>Construção e Revisão</h4>
+                        <p>Tempo de build, qualidade dos Pull Requests, camadas de teste e ciclo de feedback. Onde cada hora do seu engenheiro sênior está sendo consumida — e quanto disso é espera improdutiva.</p>
+                    </div>
+                    <div class="flow-connector">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:24px;color:var(--brand-green)"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </div>
+                    <div class="flow-step">
+                        <span class="flow-step-tag">Downstream</span>
+                        <h4>Release e Entrega nas Lojas</h4>
+                        <p>Estabilidade dos releases, frequência de rollbacks, governança de entrega e segurança transacional. O risco não é só o bug — é o CAPEX inteiro jogado fora por um processo de release instável.</p>
+                    </div>
                 </div>
             </div>
 
+            <!-- What we deliver -->
+            <div class="diagnostic-deliverables">
+                <h3>O que você recebe no <span class="highlight-green">Diagnóstico</span></h3>
+                <div class="solution-pillars">
+                    <div class="pillar-card">
+                        <span class="pillar-number">01</span>
+                        <h3>Mapa de Desperdício</h3>
+                        <p>Identificação precisa de onde o investimento (CAPEX) está sendo queimado: tempo morto entre builds, reuniões sem resultado, retrabalho de UI/UX e hotfixes evitáveis. Com valores estimados em R$/semestre por squad.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <span class="pillar-number">02</span>
+                        <h3>Plano de Previsibilidade</h3>
+                        <p>Substituição do "eu acho que entrega na sexta" por um modelo de estimativa baseado em dados reais. Mapeamento de subtasks e impacto técnico antes do desenvolvimento — fim da guerra entre Produto e Engenharia.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <span class="pillar-number">03</span>
+                        <h3>Roadmap de Contenção</h3>
+                        <p>Ações priorizadas por impacto financeiro para os primeiros 90 dias: otimização de pipeline, reorganização de camadas de teste, redução de ciclo de feedback e corte de custos de infraestrutura (FinOps).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Differentials -->
             <div class="solution-differentials">
                 <h3>Por que não resolver <span class="highlight-green">internamente</span>?</h3>
                 <div class="diff-grid">
                     <div class="diff-item">
                         <span class="diff-vs">vs. Agile Coaches</span>
-                        <p>Consultorias ágeis tradicionais não conhecem as dores técnicas reais do mobile — CI/CD, revisão das lojas, fragmentação Android/iOS. Nós vivemos isso.</p>
+                        <p>Teóricos demais. Não conhecem as dores técnicas reais do mobile — revisão das lojas, fragmentação Android/iOS, intermitência de pipeline. Nós vivemos isso na prática em operações de grande escala.</p>
                     </div>
                     <div class="diff-item">
                         <span class="diff-vs">vs. Boutiques de Engenharia</span>
-                        <p>Grandes consultorias vendem times inteiros e projetos fechados. Nós otimizamos o fluxo do seu time, sem substituí-lo.</p>
+                        <p>Vendem times inteiros e projetos fechados. O foco deles é codar e entregar. O nosso é otimizar o fluxo e a capacidade do seu time — sem substituí-lo.</p>
                     </div>
                     <div class="diff-item">
-                        <span class="diff-vs">vs. Resolver Sozinho</span>
-                        <p>Seu time está focado no "o quê" construir. Nós trazemos a visão externa de quem já resolveu o "como" em múltiplos cenários reais.</p>
+                        <span class="diff-vs">vs. Time Interno</span>
+                        <p>Seu time foca no "o quê" construir (features). Nós trazemos a visão externa de quem já viu o que funciona em Magalu, Casas Bahia, Banco Carrefour — focamos no "como" construir com eficiência.</p>
                     </div>
                 </div>
             </div>

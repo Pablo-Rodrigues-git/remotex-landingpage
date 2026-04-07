@@ -95,7 +95,7 @@
 }
 
 .solution-content {
-    max-width: 900px;
+    max-width: 960px;
 }
 
 .solution-content > h2 {
@@ -107,6 +107,106 @@
     font-size: 1.15rem;
     color: var(--text-muted);
     margin-bottom: 3rem;
+}
+
+/* Diagnostic Flow (Upstream → Downstream) */
+.diagnostic-flow {
+    margin-bottom: 4rem;
+    padding: 2.5rem;
+    background: rgba(0, 230, 118, 0.02);
+    border: 1px solid rgba(0, 230, 118, 0.1);
+    border-radius: 16px;
+}
+
+.flow-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--brand-green);
+    margin-bottom: 2rem;
+}
+
+.flow-steps {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.flow-step {
+    flex: 1;
+    padding: 1.5rem;
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    transition: border-color 0.3s;
+}
+
+.flow-step:hover {
+    border-color: var(--brand-green);
+}
+
+.flow-step-tag {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #000;
+    background: var(--brand-green);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    margin-bottom: 0.8rem;
+}
+
+.flow-step h4 {
+    font-size: 1.05rem;
+    margin-bottom: 0.6rem;
+    color: var(--text-main);
+}
+
+.flow-step p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.flow-connector {
+    display: flex;
+    align-items: center;
+    padding-top: 2.5rem;
+    flex-shrink: 0;
+}
+
+/* Diagnostic Deliverables */
+.diagnostic-deliverables {
+    margin-bottom: 3rem;
+}
+
+.diagnostic-deliverables > h3 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 1024px) {
+    .flow-steps {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .flow-connector {
+        padding-top: 0;
+        justify-content: center;
+        transform: rotate(90deg);
+    }
+}
+
+@media (max-width: 768px) {
+    .diagnostic-flow {
+        padding: 1.5rem;
+    }
+    .diagnostic-deliverables > h3 {
+        font-size: 1.4rem;
+    }
 }
 
 /* Pillar Cards */
