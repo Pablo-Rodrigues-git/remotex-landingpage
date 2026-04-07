@@ -85,9 +85,10 @@
     }
     
     .fake-iphone-mockup {
-        width: 240px;
-        height: 480px;
-        margin: 0 auto 3rem;
+        display: none;
+    }
+    .middle-visual-section .orb-glow {
+        display: none;
     }
     
     /* Transforming the absolute container into a Horizontal Carousel */
