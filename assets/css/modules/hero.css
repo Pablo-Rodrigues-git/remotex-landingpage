@@ -134,24 +134,14 @@
     .hero-tag {
         font-size: 0.8rem;
     }
-    /* Let the visual container hold the full image organically */
+    /* Hide hero visuals (photo + orb) on mobile to save space */
     .hero-visuals {
-        height: auto;
-        min-height: auto;
-        margin-top: 3rem;
-        width: 100vw;
-        margin-left: -5%; /* Break out of 5% page padding to allow edge-to-edge glow if needed */
-        display: flex;
-        justify-content: center;
-        align-items: flex-end; /* Flush to bottom */
+        display: none;
     }
-    .orb-glow {
-        width: 450px;
-        height: 450px;
-        left: 50%;
-        top: 60%;
+    .hero {
+        padding-bottom: 4rem;
     }
-    /* Reverting from absolute to relative structure to force viewport height accurately */
+    /* Keep below in case visuals are re-enabled */
     .hero-profile-img {
         position: relative;
         width: 100%;
