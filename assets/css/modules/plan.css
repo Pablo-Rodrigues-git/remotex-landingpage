@@ -60,13 +60,19 @@
 .floating-4 { bottom: 25%; right: 10%; }
 
 @media (max-width: 1024px) {
+    .fake-iphone-mockup {
+        display: none;
+    }
+    .middle-visual-section .orb-glow {
+        display: none;
+    }
     .floating-glass-card {
         position: relative;
         width: 100%;
         top: auto !important; left: auto !important; right: auto !important; bottom: auto !important;
         margin-bottom: 1rem;
     }
-    
+
     .middle-visual-section {
         flex-direction: column;
         padding: 4rem 5%;
