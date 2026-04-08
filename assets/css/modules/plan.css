@@ -79,7 +79,35 @@
     }
 }
 
+/* Swipe Hint - hidden by default, shown on mobile */
+.swipe-hint {
+    display: none;
+}
+
 @media (max-width: 768px) {
+    .swipe-hint {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.8rem 0 0;
+        color: var(--text-muted);
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    .swipe-hint svg {
+        width: 18px;
+        height: 18px;
+        color: var(--brand-green);
+        animation: swipe-arrow 1.2s ease-in-out infinite;
+    }
+    @keyframes swipe-arrow {
+        0%, 100% { transform: translateX(0); }
+        50% { transform: translateX(6px); }
+    }
+
     .middle-visual-section {
         padding: 4rem 0 2rem 0; /* Removing horizontal padding to allow full bleed carousel */
         overflow: hidden;
