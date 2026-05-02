@@ -1,10 +1,11 @@
 :root {
-    --brand-green: #00E676; /* Vibrant Neon/Emerald Green */
-    --brand-green-glow: rgba(0, 230, 118, 0.3);
+    /* Cor de destaque: roxo (legado: --brand-green mantido para não quebrar referências) */
+    --brand-green: #b266ff;
+    --brand-green-glow: rgba(178, 102, 255, 0.35);
     --bg-black: #000000;
     --bg-dark-gray: #0a0a0a;
     --bg-card: rgba(255, 255, 255, 0.03);
-    --border-card: rgba(0, 230, 118, 0.3);
+    --border-card: rgba(178, 102, 255, 0.32);
     --text-main: #ffffff;
     --text-muted: #9ca3af;
     --nav-tracker-width: 150px;

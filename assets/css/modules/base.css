@@ -42,12 +42,12 @@ h1, h2, h3, h4 {
     transition: all 0.3s ease;
     border: none;
     cursor: pointer;
-    box-shadow: 0 0 20px rgba(0, 230, 118, 0.4);
+    box-shadow: 0 0 20px rgba(178, 102, 255, 0.4);
 }
 
 .btn-neon:hover {
     transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 0 30px rgba(0, 230, 118, 0.7);
+    box-shadow: 0 0 30px rgba(178, 102, 255, 0.65);
 }
 
 /* Layout Utilities */
@@ -78,6 +78,30 @@ h1, h2, h3, h4 {
     letter-spacing: 1px;
     border-left: 2px solid var(--brand-green);
     padding-left: 1rem;
+}
+
+/* Desktop: entrada suave ao scroll — da esquerda para a direita + fade (ease) */
+@media (min-width: 1024px) {
+    .side-tracker .tracker-text {
+        opacity: 0;
+        transform: translateX(-22px);
+        transition:
+            opacity 0.7s ease,
+            transform 0.7s ease;
+    }
+
+    .side-tracker .tracker-text.is-revealed {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@media (min-width: 1024px) and (prefers-reduced-motion: reduce) {
+    .side-tracker .tracker-text {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
 }
 
 .section-content {

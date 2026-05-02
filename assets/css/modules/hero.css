@@ -1,20 +1,92 @@
-/* Hero Section */
+/* Hero Section — largura total (liquid), conteúdo limitado em .hero-inner; altura = fim da foto */
 .hero {
     background-color: var(--bg-black);
     position: relative;
     overflow: hidden;
-    padding-top: 10rem;
-    padding-bottom: 5rem;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 10rem clamp(1.25rem, 4vw, 5rem) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.hero-inner {
+    max-width: 1480px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) min(58%, 680px);
+    align-items: end;
+    gap: clamp(1rem, 3vw, 2.5rem);
+    position: relative;
+    z-index: 2;
+}
+
+.hero-ambient {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+/* Faixa liquid em 100% da largura; máscara deixa o lado esquerdo limpo para leitura */
+.hero-liquid-surface {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: min(62vh, 580px);
+    pointer-events: none;
+    -webkit-mask-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.08) 28%,
+        rgba(0, 0, 0, 0.45) 44%,
+        rgba(0, 0, 0, 0.92) 58%,
+        #000 100%
+    );
+    mask-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.08) 28%,
+        rgba(0, 0, 0, 0.45) 44%,
+        rgba(0, 0, 0, 0.92) 58%,
+        #000 100%
+    );
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+}
+
+/* Posicionamento dos blobs (animações em liquid.css) */
+.hero-ambient .hero-blob-a {
+    left: 34%;
+    width: 48%;
+    height: min(52vw, 500px);
+    max-height: 95%;
+}
+
+.hero-ambient .hero-blob-b {
+    left: 48%;
+    width: 44%;
+    height: min(46vw, 460px);
+    max-height: 90%;
+}
+
+.hero-ambient .hero-blob-c {
+    left: 58%;
+    width: 52%;
+    height: min(44vw, 440px);
+    max-height: 88%;
 }
 
 .hero-content {
-    max-width: 600px;
+    max-width: min(620px, 100%);
     position: relative;
     z-index: 10;
+    padding-bottom: clamp(2rem, 4vw, 3.5rem);
 }
 
 .hero-tag {
@@ -32,8 +104,10 @@
 .hero-tag::before {
     content: '';
     position: absolute;
-    left: 0; top: 0;
-    height: 100%; width: 3px;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 3px;
     background-color: var(--brand-green);
 }
 
@@ -58,57 +132,148 @@
     color: var(--text-muted) !important;
 }
 
-.highlight-green {
+.highlight-accent {
     color: var(--brand-green);
 }
 
-/* Orb & Image */
+/* Foto em fluxo normal: sem % na altura = não corta; base da seção = base da imagem */
 .hero-visuals {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 60%;
-    height: 100%;
+    position: relative;
+    width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-end;
+    align-items: flex-end;
+    align-self: end;
     z-index: 1;
+}
+
+/* Liquid extra atrás do orb (degradê roxo) */
+.hero-visuals-liquid {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: visible;
+}
+
+.hero-visuals-blob {
+    left: 8%;
+    bottom: 2%;
+    width: min(62%, 380px);
+    height: min(48vw, 420px);
+    max-height: 75%;
+    filter: blur(34px);
+    opacity: 0.42 !important;
+}
+
+.hero-visuals-blob--2 {
+    left: 28%;
+    bottom: -4%;
+    width: min(55%, 340px);
+    height: min(42vw, 380px);
+    opacity: 0.36 !important;
 }
 
 .orb-glow {
     position: absolute;
-    width: 800px;
-    height: 800px;
-    background: radial-gradient(circle, var(--brand-green-glow) 0%, transparent 60%);
+    left: 50%;
+    bottom: 0;
+    width: min(120%, 820px);
+    height: min(75vw, 580px);
+    max-height: 85%;
+    background: radial-gradient(
+        ellipse 70% 65% at 50% 88%,
+        rgba(178, 102, 255, 0.42) 0%,
+        rgba(178, 102, 255, 0.14) 40%,
+        rgba(140, 80, 220, 0.06) 55%,
+        transparent 70%
+    );
+    background-size: 160% 160%;
+    background-position: 45% 88%;
     border-radius: 50%;
-    top: 50%;
-    left: 30%; /* Behind image and text */
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 6%);
     z-index: 0;
-    filter: blur(60px);
+    filter: blur(52px);
+    will-change: transform, background-position;
+    pointer-events: none;
+    /* Animação liquid-orb-drift em liquid.css */
+}
+
+/* Hero só: liquid mais discreto (outras secções mantêm intensidade em liquid.css) */
+.hero-ambient .liquid-blob.liquid-anim-a {
+    opacity: 0.36;
+}
+
+.hero-ambient .liquid-blob.liquid-anim-b {
+    opacity: 0.3;
+}
+
+.hero-ambient .liquid-blob.liquid-anim-c {
+    opacity: 0.24;
+}
+
+.hero-visuals .hero-visuals-blob {
+    opacity: 0.2 !important;
+}
+
+.hero-visuals .hero-visuals-blob--2 {
+    opacity: 0.16 !important;
+}
+
+.hero-visuals .orb-glow {
+    background: radial-gradient(
+        ellipse 70% 65% at 50% 88%,
+        rgba(178, 102, 255, 0.2) 0%,
+        rgba(178, 102, 255, 0.075) 42%,
+        rgba(140, 80, 220, 0.035) 56%,
+        transparent 72%
+    );
+    filter: blur(56px);
+}
+
+@keyframes hero-profile-enter {
+    from {
+        opacity: 0;
+        transform: translateY(28px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .hero-profile-img {
-    position: absolute;
-    bottom: 0;
-    right: 5%;
-    height: 85%;
+    position: relative;
+    display: block;
     width: auto;
-    object-fit: contain;
+    max-width: 100%;
+    height: auto;
     z-index: 2;
-    filter: grayscale(80%) contrast(1.2); /* Match Finch's desaturated look */
-    mix-blend-mode: lighten; /* Makes solid black natively transparent over the glow */
+    filter: grayscale(80%) contrast(1.2);
+    mix-blend-mode: lighten;
+    animation: hero-profile-enter 0.95s ease-out forwards;
 }
 
 @media (max-width: 1024px) {
-    .hero {
-        flex-direction: column;
-        padding-top: 8rem;
-        padding-bottom: 4rem;
+    .hero-inner {
+        grid-template-columns: 1fr;
         text-align: center;
     }
+
+    .hero-content {
+        padding-bottom: 2rem;
+    }
+
     .hero-visuals {
         display: none;
+    }
+
+    .hero-ambient {
+        display: none;
+    }
+
+    .hero {
+        padding-bottom: 4rem;
     }
 }
 
@@ -116,34 +281,45 @@
 @media (max-width: 768px) {
     .hero {
         padding-top: 6rem;
-        padding-bottom: 0rem; /* Remove bottom padding to let image crash cleanly */
+        padding-bottom: 4rem;
     }
+
     .hero h1 {
         font-size: 2.2rem;
     }
+
     .hero p {
         font-size: 1rem;
     }
+
     .hero-tag {
         font-size: 0.8rem;
     }
-    /* Hide hero visuals (photo + orb) on mobile to save space */
+
     .hero-visuals {
         display: none;
     }
-    .hero {
-        padding-bottom: 4rem;
-    }
-    /* Keep below in case visuals are re-enabled */
+
     .hero-profile-img {
-        position: relative;
         width: 100%;
-        max-width: 450px; /* Don't get absurdly large on landscape phones */
-        height: auto;
-        right: auto;
-        transform: none;
-        left: auto;
+        max-width: 450px;
         margin: 0 auto;
-        display: block;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-ambient .liquid-blob,
+    .hero-visuals-liquid .liquid-blob {
+        animation: none !important;
+    }
+
+    .orb-glow {
+        transform: translate(-50%, 6%);
+    }
+
+    .hero-profile-img {
+        animation: none;
+        opacity: 1;
+        transform: none;
     }
 }

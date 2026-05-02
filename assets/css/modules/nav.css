@@ -2,36 +2,68 @@
 .main-nav {
     position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     width: 100%;
     padding: 1.5rem 5%;
     display: flex;
-    justify-content: space-between;
+    flex-wrap: nowrap;
     align-items: center;
-    background: linear-gradient(180deg, rgba(0,0,0,0.9) 0%, transparent 100%);
+    justify-content: space-between;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
     z-index: 100;
     backdrop-filter: blur(5px);
 }
 
+/* Linha do logo + hambúrguer (altura = só o header no mobile, para o painel usar top: 100%) */
+.nav-bar-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex: 0 1 auto;
+    min-width: 0;
+}
+
 .nav-logo {
+    display: inline-flex;
+    align-items: center;
     font-weight: 900;
     font-size: 1.5rem;
     letter-spacing: -1px;
+    line-height: 1;
+    position: relative;
+    z-index: 101;
 }
 
 .nav-logo span {
     color: var(--brand-green);
 }
 
+/* Desktop: painel não cria caixa — links participam do flex da nav */
+.nav-panel {
+    display: contents;
+}
+
+.nav-toggle,
+.nav-backdrop {
+    display: none;
+}
+
 .nav-links {
     display: flex;
+    align-items: center;
     gap: 2rem;
 }
 
 .nav-links a {
+    display: inline-flex;
+    align-items: center;
     color: var(--text-muted);
     text-decoration: none;
     font-size: 0.9rem;
     font-weight: 600;
+    line-height: 1;
     transition: color 0.3s;
 }
 
@@ -41,9 +73,12 @@
 
 /* Nav CTA Button */
 .nav-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     background-color: var(--brand-green);
     color: #000 !important;
-    padding: 0.5rem 1.2rem;
+    padding: 0.55rem 1.2rem;
     border-radius: 50px;
     font-weight: 700;
     font-size: 0.8rem;
@@ -58,5 +93,224 @@
 }
 
 @media (max-width: 1024px) {
-    .nav-links { display: none; }
+    .main-nav {
+        flex-direction: column;
+        align-items: stretch;
+        flex-wrap: nowrap;
+        padding: max(1rem, env(safe-area-inset-top, 0px)) clamp(1rem, 5vw, 1.5rem) 0;
+        padding-left: max(clamp(1rem, 5vw, 1.5rem), env(safe-area-inset-left, 0px));
+        padding-right: max(clamp(1rem, 5vw, 1.5rem), env(safe-area-inset-right, 0px));
+        padding-bottom: 0;
+    }
+
+    .nav-bar-row {
+        width: 100%;
+        padding-bottom: max(1rem, env(safe-area-inset-bottom, 0px));
+        min-height: 3rem;
+        align-items: center;
+    }
+
+    .nav-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 3rem;
+        height: 3rem;
+        padding: 0;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        color: #fff;
+        position: relative;
+        z-index: 101;
+        flex-shrink: 0;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .nav-toggle-bars {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 6px;
+        width: 24px;
+    }
+
+    .nav-toggle-bar {
+        display: block;
+        height: 2px;
+        width: 100%;
+        background: currentColor;
+        border-radius: 1px;
+        transition: transform 0.25s ease, opacity 0.2s ease;
+        transform-origin: center;
+    }
+
+    .main-nav.is-open .nav-toggle-bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .main-nav.is-open .nav-toggle-bar:nth-child(2) {
+        opacity: 0;
+        transform: scaleX(0);
+    }
+
+    .main-nav.is-open .nav-toggle-bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Escurece a área abaixo do header (leve desfoque visual) */
+    .nav-backdrop {
+        display: block;
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: var(--nav-dropdown-top, 5.25rem);
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.72);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        opacity: 0;
+        visibility: hidden;
+        transition:
+            opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+            visibility 0s linear 0.45s;
+        z-index: 98;
+    }
+
+    .main-nav.is-open .nav-backdrop {
+        opacity: 1;
+        visibility: visible;
+        transition:
+            opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+            visibility 0s;
+    }
+
+    /* Cartão com respiro nas bordas — não colado na viewport */
+    .nav-panel {
+        --nav-ease: cubic-bezier(0.22, 1, 0.36, 1);
+        display: block;
+        position: absolute;
+        left: clamp(0.75rem, 4vw, 1.25rem);
+        right: clamp(0.75rem, 4vw, 1.25rem);
+        top: calc(100% + 0.5rem);
+        width: auto;
+        margin: 0;
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        visibility: hidden;
+        z-index: 99;
+        opacity: 0;
+        transform: translate3d(0, -0.75rem, 0) scale(0.98);
+        transform-origin: top center;
+        background: linear-gradient(
+            165deg,
+            rgba(18, 22, 20, 0.98) 0%,
+            rgba(5, 8, 7, 0.99) 50%,
+            rgba(0, 0, 0, 0.98) 100%
+        );
+        border-radius: 1.125rem;
+        border: 1px solid rgba(178, 102, 255, 0.24);
+        box-shadow:
+            0 4px 6px rgba(0, 0, 0, 0.2),
+            0 24px 48px rgba(0, 0, 0, 0.5),
+            inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        transition:
+            max-height 0.52s var(--nav-ease),
+            opacity 0.42s var(--nav-ease),
+            transform 0.52s var(--nav-ease),
+            visibility 0s linear 0.52s;
+    }
+
+    .main-nav.is-open .nav-panel {
+        max-height: calc(100dvh - var(--nav-dropdown-top, 5.25rem) - 1.25rem);
+        visibility: visible;
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale(1);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        transition:
+            max-height 0.52s var(--nav-ease),
+            opacity 0.45s var(--nav-ease) 0.04s,
+            transform 0.52s var(--nav-ease),
+            visibility 0s;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.125rem;
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        /* top | right | bottom | left — respiro interno + notch/home indicator */
+        padding: 1.125rem
+            max(1.125rem, env(safe-area-inset-right, 0px))
+            max(1rem, env(safe-area-inset-bottom, 0px))
+            max(1.125rem, env(safe-area-inset-left, 0px));
+    }
+
+    .nav-links a {
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        min-height: 3rem;
+        padding: 0.75rem 0.875rem;
+        margin: 0 -0.25rem;
+        border-radius: 0.65rem;
+        border-bottom: none;
+        justify-content: flex-start;
+        flex-shrink: 0;
+        color: rgba(255, 255, 255, 0.88);
+        transition:
+            background-color 0.2s ease,
+            color 0.2s ease;
+    }
+
+    .nav-links a:active {
+        background-color: rgba(178, 102, 255, 0.14);
+        color: #fff;
+    }
+
+    .nav-links a:focus-visible {
+        outline: 2px solid var(--brand-green);
+        outline-offset: 2px;
+    }
+
+    .nav-links a:last-child {
+        margin-top: 0.75rem;
+        padding: 0.85rem 1rem;
+        justify-content: center;
+        min-height: 3.125rem;
+    }
+
+    .nav-cta {
+        width: 100%;
+        padding: 0.85rem 1.25rem;
+        font-size: 0.8rem;
+        border-radius: 999px;
+        box-shadow: 0 0 0 1px rgba(178, 102, 255, 0.38);
+    }
+
+    .nav-cta:active {
+        transform: scale(0.98);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .nav-panel,
+        .main-nav.is-open .nav-panel,
+        .nav-backdrop,
+        .main-nav.is-open .nav-backdrop {
+            transition-duration: 0.01ms !important;
+            transition-delay: 0s !important;
+        }
+
+        .nav-panel {
+            transform: none;
+        }
+
+        .main-nav:not(.is-open) .nav-panel {
+            opacity: 0;
+        }
+    }
 }
