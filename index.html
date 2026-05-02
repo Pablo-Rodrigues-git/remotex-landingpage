@@ -13,6 +13,7 @@
 
     <!-- CSS Modules -->
     <link rel="stylesheet" href="assets/css/modules/vars.css">
+    <link rel="stylesheet" href="assets/css/modules/liquid.css">
     <link rel="stylesheet" href="assets/css/modules/base.css">
     <link rel="stylesheet" href="assets/css/modules/nav.css">
     <link rel="stylesheet" href="assets/css/modules/hero.css">
@@ -28,13 +29,25 @@
     <!-- ============== COMPONENT: NAVBAR ============= -->
     <!-- ============================================== -->
     <nav class="main-nav">
-        <div class="nav-logo">Remote<span>-X</span></div>
-        <div class="nav-links">
-            <a href="#dores">O Problema</a>
-            <a href="#solucao">A Solução</a>
-            <a href="#plano">Como Funciona</a>
-            <a href="#sobre">Quem Somos</a>
-            <a href="#formulario" class="nav-cta">Solicitar Diagnóstico</a>
+        <div class="nav-bar-row">
+            <div class="nav-logo">Remote<span>-X</span></div>
+            <button type="button" class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="primary-navigation">
+                <span class="nav-toggle-bars" aria-hidden="true">
+                    <span class="nav-toggle-bar"></span>
+                    <span class="nav-toggle-bar"></span>
+                    <span class="nav-toggle-bar"></span>
+                </span>
+            </button>
+        </div>
+        <div class="nav-backdrop" aria-hidden="true"></div>
+        <div class="nav-panel" id="primary-navigation">
+            <div class="nav-links">
+                <a href="#dores">O Problema</a>
+                <a href="#solucao">A Solução</a>
+                <a href="#plano">Como Funciona</a>
+                <a href="#sobre">Quem Somos</a>
+                <a href="#formulario" class="nav-cta">Solicitar Diagnóstico</a>
+            </div>
         </div>
     </nav>
     <!-- ============================================== -->
@@ -43,25 +56,38 @@
     <!-- ============== COMPONENT: HERO   ============= -->
     <!-- ============================================== -->
     <header class="hero">
-        <div class="hero-content" style="margin-left: 5%;">
-            <span class="hero-tag">Consultoria Estratégica Mobile</span>
-
-            <h1>
-                Seu investimento em tecnologia mobile está sendo <span class="highlight-green">desperdiçado</span> por processos invisíveis.
-            </h1>
-
-            <p>Empresas do varejo e fintechs perdem milhares de reais por semana em retrabalho, atrasos e talentos desmotivados. Nós identificamos e eliminamos essas perdas em até 90 dias — sem trocar seu time, sem refazer seu produto.</p>
-
-            <a href="#formulario" class="btn-neon">
-                SOLICITAR DIAGNÓSTICO GRATUITO
-            </a>
-
-            <p class="hero-exclusivity">Exclusivo para CTOs, Heads de Engenharia e Tech Leads de operações Mobile</p>
+        <div class="hero-ambient" aria-hidden="true">
+            <div class="hero-liquid-surface">
+                <div class="liquid-blob liquid-anim-a hero-blob-a"></div>
+                <div class="liquid-blob liquid-anim-b hero-blob-b"></div>
+                <div class="liquid-blob liquid-anim-c hero-blob-c"></div>
+            </div>
         </div>
+        <div class="hero-inner">
+            <div class="hero-content">
+                <span class="hero-tag">Consultoria Estratégica Mobile</span>
 
-        <div class="hero-visuals">
-            <div class="orb-glow"></div>
-            <img src="assets/img/pablo.jpeg" alt="Pablo Rodrigues - Consultor de Engenharia Mobile" class="hero-profile-img">
+                <h1>
+                    Seu investimento em tecnologia mobile está sendo <span class="highlight-accent">desperdiçado</span> por processos invisíveis.
+                </h1>
+
+                <p>Empresas do varejo e fintechs perdem milhares de reais por semana em retrabalho, atrasos e talentos desmotivados. Nós identificamos e eliminamos essas perdas em até 90 dias — sem trocar seu time, sem refazer seu produto.</p>
+
+                <a href="#formulario" class="btn-neon">
+                    SOLICITAR DIAGNÓSTICO GRATUITO
+                </a>
+
+                <p class="hero-exclusivity">Exclusivo para CTOs, Heads de Engenharia e Tech Leads de operações Mobile</p>
+            </div>
+
+            <div class="hero-visuals">
+                <div class="hero-visuals-liquid" aria-hidden="true">
+                    <span class="liquid-blob liquid-anim-b hero-visuals-blob"></span>
+                    <span class="liquid-blob liquid-anim-c hero-visuals-blob hero-visuals-blob--2"></span>
+                </div>
+                <div class="orb-glow"></div>
+                <img src="assets/img/pablo.png" alt="Pablo Rodrigues - Consultor de Engenharia Mobile" class="hero-profile-img">
+            </div>
         </div>
     </header>
     <!-- ============================================== -->
@@ -75,7 +101,7 @@
         </aside>
 
         <div class="section-content problem-content">
-            <h2>Reconhece algum desses <span class="highlight-green">sintomas</span>?</h2>
+            <h2>Reconhece algum desses <span class="highlight-accent">sintomas</span>?</h2>
 
             <p>Estes são os sinais de alerta que mais encontramos em operações mobile de médias e grandes empresas. Cada um deles tem um custo real — e normalmente invisível — no seu orçamento.</p>
 
@@ -122,7 +148,7 @@
         </aside>
 
         <div class="section-content solution-content">
-            <h2>Um diagnóstico completo do seu ciclo de entrega: do <span class="highlight-green">Concept ao Release</span></h2>
+            <h2>Um diagnóstico completo do seu ciclo de entrega: do <span class="highlight-accent">Concept ao Release</span></h2>
 
             <p>Analisamos cada etapa do seu processo de delivery mobile — desde a concepção da feature até a publicação nas lojas. Mapeamos onde seu investimento está sendo desperdiçado e entregamos um plano de ação com impacto financeiro mensurável.</p>
 
@@ -156,7 +182,7 @@
 
             <!-- What we deliver -->
             <div class="diagnostic-deliverables">
-                <h3>O que você recebe no <span class="highlight-green">Diagnóstico</span></h3>
+                <h3>O que você recebe no <span class="highlight-accent">Diagnóstico</span></h3>
                 <div class="solution-pillars">
                     <div class="pillar-card">
                         <span class="pillar-number">01</span>
@@ -178,7 +204,7 @@
 
             <!-- Differentials -->
             <div class="solution-differentials">
-                <h3>Por que não resolver <span class="highlight-green">internamente</span>?</h3>
+                <h3>Por que não resolver <span class="highlight-accent">internamente</span>?</h3>
                 <div class="diff-grid">
                     <div class="diff-item">
                         <span class="diff-vs">vs. Agile Coaches</span>
@@ -202,43 +228,55 @@
     <!-- ============== COMPONENT: O PLANO ============ -->
     <!-- ============================================== -->
     <section id="plano" class="section-wrapper middle-visual-section">
+        <div class="plan-liquid-ambient" aria-hidden="true">
+            <div class="liquid-blob liquid-anim-a plan-blob-a"></div>
+            <div class="liquid-blob liquid-anim-b plan-blob-b"></div>
+            <div class="liquid-blob liquid-anim-c plan-blob-c"></div>
+        </div>
+
         <aside class="side-tracker">
             <div class="tracker-text">O Plano</div>
         </aside>
 
-        <div class="section-content" style="position: relative; min-height: 80vh; display: flex; justify-content: center; align-items: center;">
+        <div class="section-content plan-section-inner">
             <div class="orb-glow"></div>
 
-            <!-- Central visual (Fake iPhone using CSS) -->
-            <div class="fake-iphone-mockup">
-                <div class="iphone-screen"></div>
-                <div class="iphone-glare"></div>
+            <!-- Visual central: mockup 3D de celular — animação automática (CSS) -->
+            <div class="plan-phone-3d">
+                <div class="plan-phone-mockup">
+                    <div class="plan-phone-bezel">
+                        <span class="plan-phone-earpiece" aria-hidden="true"></span>
+                        <div class="plan-phone-screen">
+                            <img
+                                class="plan-phone-img"
+                                src="assets/img/pablo.png"
+                                alt="Pablo — consultoria em delivery mobile"
+                                decoding="async"
+                                loading="lazy"
+                            >
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Orbiting Cards -->
             <div class="plan-cards-container">
                 <div class="glass-card floating-glass-card floating-1">
-                    <h4 style="font-size: 1rem;"><span class="highlight-green">01</span> Diagnóstico</h4>
+                    <h4 style="font-size: 1rem;"><span class="highlight-accent">01</span> Diagnóstico</h4>
                     <p style="font-size: 0.8rem;">Mapeamento completo dos gargalos do seu fluxo de entrega mobile.</p>
                 </div>
                 <div class="glass-card floating-glass-card floating-2">
-                    <h4 style="font-size: 1rem;"><span class="highlight-green">02</span> Plano Tático</h4>
+                    <h4 style="font-size: 1rem;"><span class="highlight-accent">02</span> Plano Tático</h4>
                     <p style="font-size: 0.8rem;">Ações de contenção priorizadas por impacto financeiro em 60 dias.</p>
                 </div>
                 <div class="glass-card floating-glass-card floating-3">
-                    <h4 style="font-size: 1rem;"><span class="highlight-green">03</span> Implementação</h4>
+                    <h4 style="font-size: 1rem;"><span class="highlight-accent">03</span> Implementação</h4>
                     <p style="font-size: 0.8rem;">Execução junto ao seu time com acompanhamento semanal.</p>
                 </div>
                 <div class="glass-card floating-glass-card floating-4">
-                    <h4 style="font-size: 1rem;"><span class="highlight-green">04</span> Resultados</h4>
+                    <h4 style="font-size: 1rem;"><span class="highlight-accent">04</span> Resultados</h4>
                     <p style="font-size: 0.8rem;">Métricas de eficiência e ROI mensuráveis para apresentar ao board.</p>
                 </div>
-            </div>
-
-            <!-- Swipe indicator (mobile only) -->
-            <div class="swipe-hint">
-                <span>Deslize</span>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </div>
 
         </div>
@@ -248,10 +286,13 @@
     <!-- ============================================== -->
     <!-- ============== COMPONENT: ABOUT      ========= -->
     <!-- ============================================== -->
-    <section id="sobre" class="about-split">
+    <section id="sobre" class="section-wrapper about-section">
+        <aside class="side-tracker">
+            <div class="tracker-text">A Mente Por Trás</div>
+        </aside>
+        <div class="section-content about-split">
         <div class="about-text-side">
-            <span class="tracker-text" style="position: relative; top: 0; border: none; padding: 0; margin-bottom: 2rem;">A Mente Por Trás</span>
-            <h2>Pablo <br>Rodrigues <svg class="verify-badge" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-1.8 14.5L6 12.3l1.4-1.4 2.8 2.8 6.4-6.4 1.4 1.4-7.8 8z"/></svg></h2>
+            <h2>Pablo <br>Rodrigues</h2>
 
             <p>Especialista em Engenharia Mobile e Liderança Técnica com mais de uma década na linha de frente de produtos digitais de altíssima escala — plataformas de varejo, fintechs e operações com stress transacional massivo.</p>
 
@@ -263,7 +304,10 @@
                 FALAR COM PABLO
             </a>
         </div>
-        <div class="about-image-side"></div>
+        <div class="about-image-wrap">
+            <div class="about-image-side"></div>
+        </div>
+        </div>
     </section>
     <!-- ============================================== -->
 
@@ -277,63 +321,51 @@
 
         <div class="section-content form-content">
             <div class="form-header">
-                <h2>Solicite seu <span class="highlight-green">Diagnóstico Gratuito</span></h2>
+                <h2>Solicite seu <span class="highlight-accent">Diagnóstico Gratuito</span></h2>
                 <p>Preencha os dados abaixo e nossa equipe entrará em contato para entender seu cenário e agendar uma conversa estratégica sem compromisso.</p>
             </div>
 
             <form class="lead-form" id="leadForm" action="https://formspree.io/f/xdapzbrw" method="POST">
+                <!-- Ordem dos filhos: label, label, campo, campo — grid alinha inputs na mesma linha -->
                 <div class="form-row">
-                    <div class="form-group">
-                        <label for="nome">Nome completo *</label>
-                        <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Melhor e-mail *</label>
-                        <input type="email" id="email" name="email" placeholder="seu@email.com" required>
-                    </div>
+                    <label for="nome">Nome completo *</label>
+                    <label for="email">Melhor email *</label>
+                    <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+                    <input type="email" id="email" name="email" placeholder="seu@email.com" required>
                 </div>
 
                 <div class="form-row">
-                    <div class="form-group">
-                        <label for="telefone">
-                            <!-- WhatsApp Icon -->
-                            <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                            Telefone / WhatsApp *
-                        </label>
-                        <input type="tel" id="telefone" name="telefone" placeholder="+55 (11) 99999-9999" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="cargo">Cargo atual *</label>
-                        <select id="cargo" name="cargo" required>
-                            <option value="" disabled selected>Selecione seu cargo</option>
-                            <option value="CTO">CTO / VP de Tecnologia</option>
-                            <option value="Head de Engenharia">Head / Diretor de Engenharia</option>
-                            <option value="Engineering Manager">Engineering Manager</option>
-                            <option value="Tech Lead">Tech Lead / Staff Engineer</option>
-                            <option value="Product Manager">Product Manager / PO</option>
-                            <option value="Outro">Outro</option>
-                        </select>
-                    </div>
+                    <label for="telefone">
+                        <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        Telefone ou WhatsApp *
+                    </label>
+                    <label for="cargo">Cargo atual *</label>
+                    <input type="tel" id="telefone" name="telefone" placeholder="+55 11 99999 9999" required>
+                    <select id="cargo" name="cargo" required>
+                        <option value="" disabled selected>Selecione seu cargo</option>
+                        <option value="CTO">CTO ou VP de Tecnologia</option>
+                        <option value="Head de Engenharia">Head ou Diretor de Engenharia</option>
+                        <option value="Engineering Manager">Engineering Manager</option>
+                        <option value="Tech Lead">Tech Lead ou Staff Engineer</option>
+                        <option value="Product Manager">Product Manager ou PO</option>
+                        <option value="Outro">Outro</option>
+                    </select>
                 </div>
 
                 <div class="form-row">
-                    <div class="form-group">
-                        <label for="empresa">Nome da empresa *</label>
-                        <input type="text" id="empresa" name="empresa" placeholder="Sua empresa" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="desafio">Qual o seu principal desafio com desenvolvimento mobile?</label>
-                        <select id="desafio" name="desafio">
-                            <option value="" disabled selected>Selecione o desafio</option>
-                            <option value="Montar ou estruturar um time mobile">Montar ou estruturar um time mobile</option>
-                            <option value="Lentidão nas entregas e prazos estourados">Lentidão nas entregas e prazos estourados</option>
-                            <option value="Qualidade e bugs recorrentes em produção">Qualidade e bugs recorrentes em produção</option>
-                            <option value="Processos imaturos e falta de governança">Processos imaturos e falta de governança</option>
-                            <option value="Turnover e desmotivação do time">Turnover e desmotivação do time</option>
-                            <option value="Escalar a operação mobile atual">Escalar a operação mobile atual</option>
-                            <option value="Outro">Outro</option>
-                        </select>
-                    </div>
+                    <label for="empresa">Nome da empresa *</label>
+                    <label for="desafio">Qual o seu principal desafio com desenvolvimento mobile?</label>
+                    <input type="text" id="empresa" name="empresa" placeholder="Sua empresa" required>
+                    <select id="desafio" name="desafio">
+                        <option value="" disabled selected>Selecione o desafio</option>
+                        <option value="Montar ou estruturar um time mobile">Montar ou estruturar um time mobile</option>
+                        <option value="Lentidão nas entregas e prazos estourados">Lentidão nas entregas e prazos estourados</option>
+                        <option value="Qualidade e bugs recorrentes em produção">Qualidade e bugs recorrentes em produção</option>
+                        <option value="Processos imaturos e falta de governança">Processos imaturos e falta de governança</option>
+                        <option value="Turnover e desmotivação do time">Turnover e desmotivação do time</option>
+                        <option value="Escalar a operação mobile atual">Escalar a operação mobile atual</option>
+                        <option value="Outro">Outro</option>
+                    </select>
                 </div>
 
                 <button type="submit" class="btn-neon form-submit-btn">
@@ -351,7 +383,7 @@
     <!-- ============================================== -->
     <footer class="footer-section">
         <div class="footer-bottom">
-            <h3 style="color: #fff; letter-spacing: 2px;">REMOTE<span class="highlight-green">-X</span> CONSULTING</h3>
+            <h3>REMOTE<span class="highlight-accent">-X</span> CONSULTING</h3>
             <p>Resultados de eficiência e ROI dependem inteiramente do cenário do mercado e da maturidade da operação de cada empresa cliente.</p>
             <p>&copy; 2025 Remote-X Consulting — Pablo Rodrigues. Todos os direitos reservados.</p>
             <p>contato@remote-x.com.br | +55 11 91271-9229</p>
